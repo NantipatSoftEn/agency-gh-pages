@@ -2,13 +2,33 @@
 @section('content')
 <section id="services">
     <div class="container">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Product</h2>
                 <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
+        </div> --}}
+        <div class="row r">
+            <div class="col-md-12">
+                    <h2 class="section-heading text-uppercase">Form article</h2>
+                <form class="" action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Example file input</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Title</label>
+                        <input type="text" class="form-control" name="title" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
-        <div class="row text-center">
+        {{-- <div class="row text-center">
             <div class="col-md-4">
                 <span class="fa-stack fa-6x">
                     <i class="fas fa-stack-1x fa-inverse"><a href="https://www.thaistoploss.com/index.php/course-work/item/847-straightonsarbitragefund"><img
@@ -74,7 +94,7 @@
                     กันระหว่างผู้บริหารกองทุนและผู้ลงทุนเป็นอัตราส่วน 30 70 เปิด รับนักลงทุนขั้นต่ำ 1000$ ขึ้นไป
                     แล้วจะเปิดรับทุกวันที่ 11-15 ของเดือน</p>
             </div>
-        </div>
+        </div> --}}
     </div>
 </section>
 @endsection
