@@ -49,5 +49,6 @@
 <!-- Custom scripts for this template -->
 <script src="js/agency.min.js"></script>
 <script src="js/customize.js"></script>
+<script src="js/dropzone.js"></script>
 @yield('js')
 </html>

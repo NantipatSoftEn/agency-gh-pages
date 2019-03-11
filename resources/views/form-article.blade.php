@@ -8,7 +8,7 @@
                 <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
         </div> --}}
-        <div class="row r">
+        <div class="row">
             <div class="col-md-12">
                     <h2 class="section-heading text-uppercase">Form article</h2>
                 <form class="" action="" method="post" enctype="multipart/form-data">
