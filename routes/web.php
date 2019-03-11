@@ -21,6 +21,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/form', function () {
-    return view('form');
+Route::get('/form-article', function () {
+    return view('form-article');
 });

@@ -24,6 +24,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
+    @yield('css')
 
 </head>
 
@@ -48,5 +49,5 @@
 <!-- Custom scripts for this template -->
 <script src="js/agency.min.js"></script>
 <script src="js/customize.js"></script>
-
+@yield('js')
 </html>
