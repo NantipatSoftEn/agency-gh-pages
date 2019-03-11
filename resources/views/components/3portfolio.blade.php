@@ -121,6 +121,7 @@
                     </div>
                     <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
                 </a>
+                </a>
                 <div class="portfolio-caption">
                     <h4>Window</h4>
                     <p class="text-muted">Photography</p>
