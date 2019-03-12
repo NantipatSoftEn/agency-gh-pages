@@ -11,12 +11,13 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="section-heading text-uppercase">Form Album</h2>
-                <!--class="dropzone files-container" -->
-                <form action="{{url('/form-album')}}"  method="POST"  enctype="multipart/form-data">
-                	<input type="hidden" name="_token" value="{{csrf_token()}}">
-                	<input type="file" name="picture_up[]" multiple>
-                	<input type="submit" name="submit">
-                </form>
+                <div class="form-group">
+                    <form action="{{url('/form-album')}}" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <input type="file" form-control-file name="picture_up[]" multiple>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

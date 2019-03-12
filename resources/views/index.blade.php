@@ -47,7 +47,7 @@
 
 <!-- Portfolio Grid -->
 
-
+@include('components.3portfolio')
 <!-- About -->
 @include('components.4about')
 
