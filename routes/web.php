@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/', function () {
+Route::get('/index', function () {
     return view('index');
 });
 
@@ -25,6 +25,5 @@ Route::get('/form-article', function () {
     return view('form-article');
 });
 
-Route::get('/form-album', function () {
-    return view('form-album');
-});
+Route::get('/form-album', 'GalleryController@index');
+Route::post('/form-album', 'GalleryController@upload');
