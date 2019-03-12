@@ -10,7 +10,7 @@
         </div> --}}
         <div class="row">
             <div class="col-md-12">
-                <h2 class="section-heading text-uppercase">Form article</h2>
+                <h2 class="section-heading text-uppercase">Edit article</h2>
                 <form class="" action="" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Example file input</label>

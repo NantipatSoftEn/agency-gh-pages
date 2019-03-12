@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::get('/', function () {
@@ -25,6 +25,14 @@ Route::get('/form-article', function () {
     return view('form-article');
 });
 
-Route::get('/form-album', function () {
-    return view('form-album');
+Route::get('/show-article', function () {
+    return view('show.show-article');
 });
+
+Route::get('/edit-article', function () {
+    return view('show.edit-article');
+});
+
+
+Route::get('/form-album', 'GalleryController@index');
+Route::post('/form-album', 'GalleryController@upload');
