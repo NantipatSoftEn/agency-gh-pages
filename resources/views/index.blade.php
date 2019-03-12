@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.index')
 @section('content')
 <!-- Navigation -->
 <!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
