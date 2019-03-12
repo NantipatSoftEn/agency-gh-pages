@@ -13,7 +13,13 @@ class Picture extends Migration
      */
     public function up()
     {
-        //
+        // Schema::create('Picture', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('path');
+        //     $table->integer('gallery_id');
+        //     $table->foreign('gallery_id')->references('id')->on('Gallery')->onDelete('cascade');
+        //     $table->timestamps('create_on');
+        // });
     }
 
     /**
@@ -23,6 +29,6 @@ class Picture extends Migration
      */
     public function down()
     {
-        //
+        //Schema::drop('Picture');
     }
 }

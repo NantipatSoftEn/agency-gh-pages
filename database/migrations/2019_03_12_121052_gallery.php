@@ -13,7 +13,12 @@ class Gallery extends Migration
      */
     public function up()
     {
-        //
+        // Schema::create('Gallery', function (Blueprint $table) {
+        //     $table->increments('id', 2001);
+        //     $table->string('content');
+        //     $table->string('link');
+        //     $table->timestamps('create_on');
+        // });
     }
 
     /**
@@ -23,6 +28,6 @@ class Gallery extends Migration
      */
     public function down()
     {
-        //
+        //Schema::drop('Gallery')
     }
 }
