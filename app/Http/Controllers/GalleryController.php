@@ -3,29 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Gallery ;
+use DB;
 
 class GalleryController extends Controller
 {
-    function index()
-    {
-    	return view('form-album');
+    function insert(Request $req){
+        $gal = new Gallery([
+                    'topic'=> $req->input('topic'),
+                    'title'=>$req->input('title'),
+                    'link'=>$req->input('link')
+                ]);
+                $gal->save();
+        return "insert success";
     }
 
-     function upload(Request $req){
+    function delete(Request $req){
+        $id = $req->input('gallery_id');
+        DB::table('gallery')->where('id',$id)->delete();
+        return "delete success";
+    }
 
-     	$input = $req->all();
-     	$img = array();
-     	$num = 0;
-     	if($req->file('picture_up')){
-     		foreach ($req->file('picture_up') as $pic) {
-     			$newname = time().$num.'.'.$pic->getClientOriginalExtension();
-     			$pic->move(public_path('album'),$newname);
-     		$num++;
-     		}
-     	}
-    	// $this->validate($req,[
-    	// 'picture_up'=>'required|image|mime:jpg,png,jpeg,gif|max:2048']);
-    	return back();
+    function update(Request $req){
+        $id = $req->input('gallery_id');
+        DB::table('gallery')->where('id',$id)->update([
+                    'topic'=> $req->input('topic'),
+                    'title'=>$req->input('title'),
+                    'link'=>$req->input('link')
+                ]);
+        return "update success";
     }
 }

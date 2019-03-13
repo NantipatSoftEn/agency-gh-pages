@@ -13,15 +13,16 @@ class Picture extends Migration
      */
     public function up()
     {
+         Schema::dropIfExists('Picture');
         Schema::create('Picture', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('path');
-            $table->integer('gallery_id');
-            $table->foreign('gallery_id')->references('id')->on('Gallery')->onDelete('cascade');
-            $table->timestamps('create_on');
-        });
+                 $table->increments('id');
+                 $table->string('path');
+                 $table->integer('gallery_id')->unsigned();
+                 $table->foreign('gallery_id')->references('id')->on('Gallery')->onDelete('cascade');
+                 $table->timestamps();
+        }); 
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -29,6 +30,6 @@ class Picture extends Migration
      */
     public function down()
     {
-        //Schema::drop('Picture');
+        Schema::dropIfExists('Picture');
     }
 }

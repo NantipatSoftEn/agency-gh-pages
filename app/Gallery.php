@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gallery extends Model
 {
-    protected $fillable = ['content','link'];
+    protected $fillable = ['topic','title','link'];
 
     protected $table='Gallery';
 }
