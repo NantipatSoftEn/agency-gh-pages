@@ -37,8 +37,10 @@ Route::delete('/article-del/{id}', 'ArticleController@delete');
 
 //Route::get('/form-album', 'PictureController@index');
 
-//Route::post('/form-album', 'PictureController@upload');
-Route::post('/pic-del', 'PictureController@delete');
+Route::post('/pic-upload', 'PictureController@upload');
+
+
+Route::delete('/pic-del/{id}', 'PictureController@delete');
 
 Route::post('/album-ins', 'GalleryController@insert');
 Route::get('/show-album', 'GalleryController@index');

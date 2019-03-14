@@ -35,7 +35,7 @@ class GalleryController extends Controller
         $picture = Picture::where('gallery_id',$id)->get();
 
         //dd($picture);
-        return view('Album.edit-album',['picture' => $picture]);
+        return view('Album.edit-album',['picture' => $picture, 'id'=> $id]);
     }
 
     function delete($id){

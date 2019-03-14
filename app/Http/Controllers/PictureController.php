@@ -15,7 +15,7 @@ class PictureController extends Controller
     }
 
      function upload(Request $req){
-
+		dd($req);
      	$input = $req->all();
      	$img = array();
      	$num = 0;
@@ -36,8 +36,8 @@ class PictureController extends Controller
     	return back();
     }
 
-    function delete(Request $req){
-    	$id = $req->input('picture_id');
+    function delete($id){
+    	
     	$image_path = public_path('album').'\\'.$req->input('picture_del');
     	$con = "Error can't Delete file!!";
     	if(File::exists($image_path)) {
@@ -46,6 +46,6 @@ class PictureController extends Controller
     			$con =  "Delete Complete";
     		}
     	}
-		return $con;
+		return back();
     }
 }

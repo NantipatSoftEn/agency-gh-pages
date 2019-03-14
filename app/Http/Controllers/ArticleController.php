@@ -33,7 +33,7 @@ class ArticleController extends Controller
     		$article->save();
     	$con = "insert success";
     	}
-    	return $con;
+    	return back();
 	}
 
 	 function  edit  ($id) {
