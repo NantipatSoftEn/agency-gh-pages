@@ -22,19 +22,15 @@ Route::get('/', function () {
 
 
 
-Route::get('/show-article', function () {
-    return view('show.show-article');
-});
 
-Route::get('/edit-article', function () {
-    return view('show.edit-article');
-});
+Route::get('/edit-article/{id}', 'ArticleController@edit');
 
 
 Route::get('/form-album', 'GalleryController@index');
 Route::post('/form-album', 'GalleryController@upload');
-Route::get('/form-article', 'ArticleController@index');
 
+Route::get('/show-article', 'ArticleController@index');
+Route::get('/form-article', 'ArticleController@create');
 Route::post('/article-ins', 'ArticleController@insert');
 Route::post('/article-upd', 'ArticleController@update');
 Route::post('/article-del', 'ArticleController@delete');
