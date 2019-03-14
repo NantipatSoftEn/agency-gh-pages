@@ -13,6 +13,7 @@
                     <h2 class="section-heading text-uppercase">Form article</h2>
                     <!-- with ins -->
                 <form class="" action="{{url('/article-ins')}}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Example file input</label>
                         <input type="file" class="form-control-file" name="picture" id="exampleFormControlFile1">
