@@ -13,12 +13,12 @@
             @foreach ($gallery as $item)
             <div class="col-md-4">
                 <div class="card" style=" margin-bottom: 25px;">
-                <embed width="277" height="250" src="{{$item->link}}">
+                    <embed width="277" height="250" src="{{$item->link}}">
                     <div class="card-body">
                         <h5 class="card-title">{{$item->title}}</h5>
                         <p class="card-text">{{$item->content}}</p>
-                        <a href="{{asset('/edit-article/'.$item->id)}}" class="btn btn-info  btn-sm">Edit</a>
-                        <a href="#!delete" onclick="confirmDelete('Are you sure to delete ?', '{{ url('article-del', $item->id )}}', 'delete');"
+                        <a href="{{asset('/edit-album/'.$item->id)}}" class="btn btn-info  btn-sm">Edit</a>
+                        <a href="#!delete" onclick="confirmDelete('Are you sure to delete ?', '{{ url('album-del', $item->id )}}', 'delete');"
                             class="btn btn-danger btn-sm">Delete</a>
                         {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
                     </div>

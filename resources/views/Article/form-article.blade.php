@@ -16,7 +16,7 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Example file input</label>
-                        <input type="file" class="form-control-file" name="picture" id="exampleFormControlFile1">
+                        <input type="file" class="form-control-file" name="picture" id="">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Title</label>

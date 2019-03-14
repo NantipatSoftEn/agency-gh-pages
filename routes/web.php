@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 
 Route::get('/edit-article/{id}', 'ArticleController@edit');
-
+Route::get('/edit-album/{id}', 'GalleryController@edit');
 
 Route::get('/form-album', 'GalleryController@create');
 Route::post('/form-album', 'GalleryController@upload');

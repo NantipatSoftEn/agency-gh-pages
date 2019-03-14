@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gallery ;
+use App\Picture ;
 use DB;
 
 class GalleryController extends Controller
@@ -27,13 +28,19 @@ class GalleryController extends Controller
 
     function  create()
 	{
+        
 		return  view('Album.form-album');
     } 
-    
-    function delete(Request $req){
-        $id = $req->input('gallery_id');
+    function edit($id){
+        $picture = Picture::where('gallery_id',$id)->get();
+
+        //dd($picture);
+        return view('Album.edit-album',['picture' => $picture]);
+    }
+
+    function delete($id){
         DB::table('gallery')->where('id',$id)->delete();
-        return "delete success";
+        return back();
     }
 
     function update(Request $req){
