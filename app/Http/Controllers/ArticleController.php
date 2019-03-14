@@ -11,7 +11,8 @@ class ArticleController extends Controller
 {
      function index()
     {
-    	return view('form-article');
+		$article = Article::all();
+    	return view('Article.show-article',['article' => $article]);
     }
 
     function insert(Request $req){
@@ -29,7 +30,7 @@ class ArticleController extends Controller
     	}
     	return $con;
 	}
-
+	public function  edit  ($id) {}
     function update(Request $req){
     	$con = "Update fail";
     	$id = $req->input('article_id');
