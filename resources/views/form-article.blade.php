@@ -21,10 +21,7 @@
                         <label for="exampleInputEmail1">Title</label>
                         <input type="text" class="form-control" name="title" placeholder="">
                     </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="3"></textarea>
-                    </div>
+                 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Content</label>
                         <textarea class="form-control"  name="content" rows="3"></textarea>

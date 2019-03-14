@@ -25,7 +25,7 @@ class PictureController extends Controller
      			$pic->move(public_path('album'),$newname);
                 $picture = new Picture([
                 	'path'=> public_path('album').'\\'.$newname,
-                	'gallery_id'=>$req->input('gallery_id');
+                	'gallery_id'=>$req->input('gallery_id')
                 ]);
                 $picture->save();
      		$num++;
