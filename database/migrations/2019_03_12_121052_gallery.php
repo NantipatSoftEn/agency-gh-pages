@@ -15,8 +15,8 @@ class Gallery extends Migration
     {
         Schema::create('Gallery', function (Blueprint $table) {
              $table->increments('id');
-             $table->string('topic');
              $table->string('title');
+             $table->string('content');
              $table->string('link');
              $table->timestamps();
         });

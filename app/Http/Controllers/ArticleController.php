@@ -13,11 +13,13 @@ class ArticleController extends Controller
     {
 		$article = Article::all();
     	return view('Article.show-article',['article' => $article]);
-    }
+	}
+	
 	function  create()
 	{
 		return  view('Article.form-article');
 	} 
+	
     function insert(Request $req){
     	$con = "Insert fail";
     	if($req->file('picture')){

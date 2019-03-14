@@ -26,20 +26,21 @@ Route::get('/', function () {
 Route::get('/edit-article/{id}', 'ArticleController@edit');
 
 
-Route::get('/form-album', 'GalleryController@index');
+Route::get('/form-album', 'GalleryController@create');
 Route::post('/form-album', 'GalleryController@upload');
 
 Route::get('/show-article', 'ArticleController@index');
 Route::get('/form-article', 'ArticleController@create');
 Route::post('/article-ins', 'ArticleController@insert');
 Route::post('/article-upd', 'ArticleController@update');
-Route::post('/article-del', 'ArticleController@delete');
+Route::delete('/article-del/{id}', 'ArticleController@delete');
 
-Route::get('/form-album', 'PictureController@index');
+//Route::get('/form-album', 'PictureController@index');
 
-Route::post('/form-album', 'PictureController@upload');
+//Route::post('/form-album', 'PictureController@upload');
 Route::post('/pic-del', 'PictureController@delete');
 
 Route::post('/album-ins', 'GalleryController@insert');
+Route::get('/show-album', 'GalleryController@index');
 Route::post('/album-upd', 'GalleryController@update');
-Route::post('/album-del', 'GalleryController@delete');
+Route::delete('/album-del/{id}', 'GalleryController@delete');
