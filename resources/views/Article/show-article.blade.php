@@ -16,10 +16,10 @@
                     <img class="card-img-top" src="{{asset($item->path_pic)}}" alt="">
                     <div class="card-body">
                         <h5 class="card-title">{{$item->title}}</h5>
-                    <p class="card-text">{{$item->content}}</p>
+                        <p class="card-text">{{$item->content}}</p>
                         <a href="{{asset('/edit-article/'.$item->id)}}" class="btn btn-info  btn-sm">Edit</a>
-                        <button type="button" class="btn btn-danger  btn-sm">delect</button>
-
+                        <a href="#!delete" onclick="confirmDelete('Are you sure to delete ?', '{{ url('article-del', $item->id )}}', 'delete');"
+                            class="btn btn-danger btn-sm">Delete</a>
                         {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
                     </div>
                 </div>
@@ -31,4 +31,24 @@
         </div>
     </div>
 </section>
+@endsection
+@section('js')
+<script type="text/javascript">
+    function confirmDelete(msg, url, action) {
+        if (confirm(msg)) {
+            if (action == 'restore') {
+                window.location.href = url;
+            } else {
+                var element = document.getElementById('form-delete');
+                element.action = url;
+                element.submit();
+            }
+            // $('form#form-delete').attr('action', url);
+            // $('form#form-delete').submit();
+        } else {
+            alert('Canceled');
+        }
+    }
+
+</script>
 @endsection

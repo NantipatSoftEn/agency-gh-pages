@@ -14,7 +14,10 @@ class ArticleController extends Controller
 		$article = Article::all();
     	return view('Article.show-article',['article' => $article]);
     }
-
+	function  create()
+	{
+		return  view('Article.form-article');
+	} 
     function insert(Request $req){
     	$con = "Insert fail";
     	if($req->file('picture')){
@@ -30,9 +33,15 @@ class ArticleController extends Controller
     	}
     	return $con;
 	}
-	public function  edit  ($id) {}
+
+	 function  edit  ($id) {
+		$article = Article::find($id);
+    	return view('Article.edit-article',['article' => $article]);
+	}
+
     function update(Request $req){
-    	$con = "Update fail";
+		//dd($req);
+    	$con = "Update Sucess";
     	$id = $req->input('article_id');
     	$path = $req->input('path_pic');
     	if($req->file('picture')){
@@ -47,21 +56,24 @@ class ArticleController extends Controller
                     'content'=>$req->input('content'),
                     'path_pic'=>$path,
                 ]);
-    	return $con;
+		return redirect('show-article');
     }
 
-    function delete(Request $req){
-    	$con = "Delete fail";
-    	$id = $req->input('picture_id');
-    	$image_path = public_path('article').'\\'.$req->input('picture_del');
+    function delete($id){
+		$con = "delete Sucess";
+		$article2 = DB::table('article')->find($id);
+    	$image_path =	$article2->path_pic;
     	$con = "Error can't Delete file!!";
     	if(File::exists($image_path)) {
     		if(File::delete($image_path)){
-    			DB::table('article')->where('id',$id)->delete();
-    			$con =  "Delete Complete";
+    		
     		}
-    	}
-		return $con;
+		}
+		
+    	$article = DB::table('article')->where('id',$id)->delete();
+		$con =  "Delete Complete";
+	
+		return back();
     }
 
 }

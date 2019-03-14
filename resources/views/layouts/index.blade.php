@@ -35,6 +35,11 @@
 @yield('content')
 
 </body>
+{{--For Form delect--}}
+<form id="form-delete" method="post">
+    {{ csrf_field() }}
+    {{ method_field('DELETE') }}
+</form>
 <!-- Bootstrap core JavaScript -->
 <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

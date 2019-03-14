@@ -30,13 +30,6 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             
-                <!-- with delete -->
-                 <form action="{{url('/article-del')}}"  method="POST"  enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <input type="hidden" name="picture_id" >
-                    <input type="hidden" name="picture_del" >
-                    <input type="submit" name="submit">
-                </form>
             </div>
         </div>
     </div>
