@@ -21,7 +21,12 @@ class ArticleController extends Controller
 	} 
 	
     function insert(Request $req){
-    	$con = "Insert fail";
+        $this->validate($req, [
+           'title'   => 'required|max:255',
+           'content' => 'required',
+           'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);   
+    	
     	if($req->file('picture')){
     		$newname = time().'.'.$req->file('picture')->getClientOriginalExtension();
     		$req->file('picture')->move(public_path('article'),$newname);
@@ -33,7 +38,7 @@ class ArticleController extends Controller
     		$article->save();
     	$con = "insert success";
     	}
-    	return back();
+    	return  redirect('show-article');
 	}
 
 	 function  edit  ($id) {
@@ -43,6 +48,10 @@ class ArticleController extends Controller
 
     function update(Request $req){
 		//dd($req);
+        $this->validate($req, [
+           'title'   => 'required|max:255',
+           'content' => 'required',
+        ]);
     	$con = "Update Sucess";
     	$id = $req->input('article_id');
     	$path = $req->input('path_pic');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use App\Gallery ;
 use App\Picture ;
@@ -16,14 +17,19 @@ class GalleryController extends Controller
     }
 
     function insert(Request $req){
-        //dd($req);
+        $this->validate($req, [
+           'title'   => 'required|max:255',
+           'content' => 'required',
+           'picture_up' => 'required',
+        ]);        
         $gal = new Gallery([
                     'title'=>$req->input('title'),
                     'content'=>$req->input('content'),
                     'link'=>$req->input('link')
                 ]);
                 $gal->save();
-        return "insert success";
+         $gallery = Gallery::all();
+        return view ('Album.show-album', ['gallery' => $gallery]);
     }
 
     function  create()
@@ -44,6 +50,11 @@ class GalleryController extends Controller
     }
 
     function update(Request $req){
+        $this->validate($req, [
+           'title'   => 'required|max:255',
+           'content' => 'required',
+           'link' => 'required',
+        ]);  
         $id = $req->input('gallery_id');
         DB::table('gallery')->where('id',$id)->update([
                     'topic'=> $req->input('topic'),

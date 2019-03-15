@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use App\Picture;
 use File;
@@ -14,13 +15,15 @@ class PictureController extends Controller
     	return view('form-album');
     }
 
-     function upload(Request $req){
-		dd($req);
-     	$input = $req->all();
-     	$img = array();
+     function upload(Request $req){ 	
+        $this->validate($req,[
+            'picture_up' => 'required',
+             'picture_up.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
      	$num = 0;
-     	if($req->file('picture_up')){
-     		foreach ($req->file('picture_up') as $pic) {
+        $img = $req->file('picture_up');
+     	if($img){
+     		foreach ($img as $pic) {
      			$newname = time().$num.'.'.$pic->getClientOriginalExtension();
      			$pic->move(public_path('album'),$newname);
                 $picture = new Picture([
@@ -31,19 +34,18 @@ class PictureController extends Controller
      		$num++;
      		}
      	}
-    	// $this->validate($req,[
-    	// 'picture_up'=>'required|image|mime:jpg,png,jpeg,gif|max:2048']);
+    	
     	return back();
     }
 
     function delete($id){
-    	
-    	$image_path = public_path('album').'\\'.$req->input('picture_del');
+        $picture = DB::table('picture')->where('id',$id)->first();
+
+    	$image_path =$picture->path;
     	$con = "Error can't Delete file!!";
     	if(File::exists($image_path)) {
     		if(File::delete($image_path)){
     			DB::table('picture')->where('id',$id)->delete();
-    			$con =  "Delete Complete";
     		}
     	}
 		return back();
