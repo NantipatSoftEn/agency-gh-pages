@@ -13,7 +13,7 @@
                 <form action="{{url('/album-ins')}}" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="file" form-control-file name="picture_up" >
+                        {{-- <input type="file" form-control-file name="picture_up" > --}}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
                             <input type="text" class="form-control" name="title" placeholder="">
