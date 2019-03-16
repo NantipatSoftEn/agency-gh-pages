@@ -67,7 +67,7 @@ class ArticleController extends Controller
                     'content'=>$req->input('content'),
                     'path_pic'=>$path,
                 ]);
-		return redirect('show-article');
+		return back();
     }
 
     function delete($id){
