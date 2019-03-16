@@ -13,7 +13,7 @@
             @foreach ($gallery as $item)
             <div class="col-md-4">
                 <div class="card" style=" margin-bottom: 25px;">
-                    <embed width="277" height="250" src="{{$item->link}}">
+                        <img src="{{asset($item->img)}}" class="img-fluid">
                     <div class="card-body">
                         <h5 class="card-title">{{$item->title}}</h5>
                         <p class="card-text">{{$item->content}}</p>

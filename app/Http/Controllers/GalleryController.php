@@ -22,7 +22,16 @@ class GalleryController extends Controller
            'content' => 'required',
            //'picture_up' => 'required',
         ]);        
+        $path;
+        if($req->file('picture')){
+    		$newname = time().'.'.$req->file('picture')->getClientOriginalExtension();
+    		$req->file('picture')->move('imgOfalbum',$newname);
+            $path = 'imgOfalbum/'.$newname;
+        }
+        
+        
         $gal = new Gallery([
+                    'img' => $path ,
                     'title'=>$req->input('title'),
                     'content'=>$req->input('content'),
                     'link'=>$req->input('link')
