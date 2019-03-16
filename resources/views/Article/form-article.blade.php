@@ -1,5 +1,6 @@
 @extends('layouts/index')
 @section('content')
+@include('components.navbarAdmin')
 <section id="services">
     <div class="container">
         {{-- <div class="row">
@@ -15,7 +16,7 @@
                 <form class="" action="{{url('/article-ins')}}" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
-                        <label for="exampleFormControlFile1">Example file input</label>
+                        <label for="exampleFormControlFile1">Upload Img</label>
                         <input type="file" class="form-control-file" name="picture" id="">
                     </div>
                     <div class="form-group">

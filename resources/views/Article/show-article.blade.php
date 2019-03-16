@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('content')
+@include('components.navbarAdmin')
 <section id="services">
     <div class="container">
         {{-- <div class="row">
@@ -27,7 +28,7 @@
             @endforeach
 
 
-
+ 
         </div>
     </div>
 </section>

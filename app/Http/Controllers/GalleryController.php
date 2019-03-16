@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use App\Gallery ;
 use App\Picture ;
@@ -16,21 +17,41 @@ class GalleryController extends Controller
     }
 
     function insert(Request $req){
-        //dd($req);
+        $this->validate($req, [
+           'title'   => 'required|max:255',
+           'content' => 'required',
+           //'picture_up' => 'required',
+        ]);        
+        $path;
+        if($req->file('picture')){
+    		$newname = time().'.'.$req->file('picture')->getClientOriginalExtension();
+    		$req->file('picture')->move('imgOfalbum',$newname);
+            $path = 'imgOfalbum/'.$newname;
+        }
+        
+        
         $gal = new Gallery([
+                    'img' => $path ,
                     'title'=>$req->input('title'),
                     'content'=>$req->input('content'),
                     'link'=>$req->input('link')
                 ]);
                 $gal->save();
-        return "insert success";
+         $gallery = Gallery::all();
+        return view ('Album.show-album', ['gallery' => $gallery]);
     }
 
     function  create()
-	{
-        
+	{    
 		return  view('Album.form-album');
-    } 
+    }
+    
+    function   edit_album_detail($id) {
+            $gallery = Gallery::find($id);
+        
+            return view('Album.edit-album-detail',['gallery' => $gallery]);
+    }
+
     function edit($id){
         $picture = Picture::where('gallery_id',$id)->get();
 
@@ -43,13 +64,19 @@ class GalleryController extends Controller
         return back();
     }
 
-    function update(Request $req){
-        $id = $req->input('gallery_id');
+    function update(Request $req,$id){
+        //dd( $req);
+        $this->validate($req, [
+           'title'   => 'required|max:255',
+           'content' => 'required',
+           'link' => 'required',
+        ]);  
         DB::table('gallery')->where('id',$id)->update([
-                    'topic'=> $req->input('topic'),
-                    'title'=>$req->input('title'),
+                    'title'=> $req->input('title'),
+                    'content'=>$req->input('content'),
                     'link'=>$req->input('link')
                 ]);
-        return "update success";
+        return back();
     }
+
 }

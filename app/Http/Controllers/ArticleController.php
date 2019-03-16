@@ -21,19 +21,24 @@ class ArticleController extends Controller
 	} 
 	
     function insert(Request $req){
-    	$con = "Insert fail";
+        $this->validate($req, [
+           'title'   => 'required|max:255',
+           'content' => 'required',
+           'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);   
+    	
     	if($req->file('picture')){
     		$newname = time().'.'.$req->file('picture')->getClientOriginalExtension();
-    		$req->file('picture')->move(public_path('article'),$newname);
+    		$req->file('picture')->move('article',$newname);
     		$article = new Article([
 	    		'title'=>$req->input('title'),
 	    		'content'=>$req->input('title'),
-	    		'path_pic'=> public_path('article').'\\'.$newname
+	    		'path_pic'=> 'article/'.$newname
     		]);
     		$article->save();
     	$con = "insert success";
     	}
-    	return back();
+    	return  redirect('show-article');
 	}
 
 	 function  edit  ($id) {
@@ -43,14 +48,18 @@ class ArticleController extends Controller
 
     function update(Request $req){
 		//dd($req);
+        $this->validate($req, [
+           'title'   => 'required|max:255',
+           'content' => 'required',
+        ]);
     	$con = "Update Sucess";
     	$id = $req->input('article_id');
     	$path = $req->input('path_pic');
     	if($req->file('picture')){
     		if(File::delete($path)){
     			$newname = time().'.'.$req->file('picture')->getClientOriginalExtension();
-    			$req->file('picture')->move(public_path('article'),$newname);
-    			$path =  public_path('article').'\\'.$newname;
+    			$req->file('picture')->move('article',$newname);
+    			$path =  'article/'.$newname;
     		}
 		}
     	DB::table('article')->where('id',$id)->update([
@@ -58,7 +67,7 @@ class ArticleController extends Controller
                     'content'=>$req->input('content'),
                     'path_pic'=>$path,
                 ]);
-		return redirect('show-article');
+		return back();
     }
 
     function delete($id){

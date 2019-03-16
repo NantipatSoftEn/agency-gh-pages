@@ -1,48 +1,39 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Auth::routes();
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@show_all');
 
 
-Route::get('/', function () {
-    return view('index');
-});
+//////////////--GET--//////////////
 
-
-
-
-Route::get('/edit-article/{id}', 'ArticleController@edit');
-Route::get('/edit-album/{id}', 'GalleryController@edit');
-
+//////////////Gallery//////////////
 Route::get('/form-album', 'GalleryController@create');
-Route::post('/form-album', 'GalleryController@upload');
-
+Route::get('/edit-album/{id}', 'GalleryController@edit');
+Route::get('/show-album', 'GalleryController@index');
+Route::get('/edit-album-detail/{id}','GalleryController@edit_album_detail');
+//////////////Article//////////////
+Route::get('/edit-article/{id}', 'ArticleController@edit');
 Route::get('/show-article', 'ArticleController@index');
 Route::get('/form-article', 'ArticleController@create');
+/////<---------------------->//////
+
+//////////////--POST--/////////////
+
+//////////////Gallery//////////////
+Route::post('/form-album', 'GalleryController@upload');
+Route::post('/album-ins', 'GalleryController@insert');
+Route::post('/album-upd/{id}', 'GalleryController@update');
+//////////////Article//////////////
 Route::post('/article-ins', 'ArticleController@insert');
 Route::post('/article-upd', 'ArticleController@update');
-Route::delete('/article-del/{id}', 'ArticleController@delete');
-
-//Route::get('/form-album', 'PictureController@index');
-
+//////////////Picture//////////////
 Route::post('/pic-upload', 'PictureController@upload');
+/////<---------------------->//////
 
-
-Route::delete('/pic-del/{id}', 'PictureController@delete');
-
-Route::post('/album-ins', 'GalleryController@insert');
-Route::get('/show-album', 'GalleryController@index');
-Route::post('/album-upd', 'GalleryController@update');
+//////////////--DELETE--////////////
 Route::delete('/album-del/{id}', 'GalleryController@delete');
+Route::delete('/article-del/{id}', 'ArticleController@delete');
+Route::delete('/pic-del/{id}', 'PictureController@delete');
+/////<---------------------->//////

@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('content')
+@include('components.navbarAdmin')
 <section id="services">
     <div class="container">
         {{-- <div class="row">
@@ -14,9 +15,9 @@
                 <div class="form-group">
                     <form action="{{url('/pic-upload')}}" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="hidden" name="gallery_id" value="{{csrf_token()}}">
+                        <input type="hidden" name="gallery_id" value="{{$id}}">
                         <label for="exampleFormControlFile1">Example file input</label>
-                        <input type="file" class="form-control-file" name="picture_up" id="" multiple>
+                        <input type="file" class="form-control-file" name="picture_up[]"  multiple>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
@@ -29,7 +30,7 @@
                     <img class="card-img-top" src="{{asset($item->path)}}" alt="">
                     <div class="card-body">
 
-                        <a href="{{asset('/edit-article/'.$item->id)}}" class="btn btn-info  btn-sm">Edit</a>
+                   
                         <a href="#!delete" onclick="confirmDelete('Are you sure to delete ?', '{{ url('pic-del', $item->id )}}', 'delete');"
                             class="btn btn-danger btn-sm">Delete</a>
                         {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
