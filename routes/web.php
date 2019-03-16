@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::get('/form-album', 'GalleryController@create');
 Route::get('/edit-album/{id}', 'GalleryController@edit');
 Route::get('/show-album', 'GalleryController@index');
+Route::get('/edit-album-detail/{id}','GalleryController@edit_album_detail');
 //////////////Article//////////////
 Route::get('/edit-article/{id}', 'ArticleController@edit');
 Route::get('/show-article', 'ArticleController@index');
@@ -36,7 +37,7 @@ Route::get('/form-article', 'ArticleController@create');
 //////////////Gallery//////////////
 Route::post('/form-album', 'GalleryController@upload');
 Route::post('/album-ins', 'GalleryController@insert');
-Route::post('/album-upd', 'GalleryController@update');
+Route::post('/album-upd/{id}', 'GalleryController@update');
 //////////////Article//////////////
 Route::post('/article-ins', 'ArticleController@insert');
 Route::post('/article-upd', 'ArticleController@update');

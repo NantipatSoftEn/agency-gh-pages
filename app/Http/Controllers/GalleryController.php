@@ -20,16 +20,8 @@ class GalleryController extends Controller
         $this->validate($req, [
            'title'   => 'required|max:255',
            'content' => 'required',
-           'picture_up' => 'required',
+           //'picture_up' => 'required',
         ]);        
-        $path;
-        if($req->file('picture_up')){
-    		$newname = time().'.'.$req->file('picture_up')->getClientOriginalExtension();
-    		$req->file('picture_up')->move('headAlbum',$newname);
-            $path ='article/'.$newname;
-    	$con = "insert success";
-        }
-        
         $gal = new Gallery([
                     'title'=>$req->input('title'),
                     'content'=>$req->input('content'),
@@ -41,10 +33,16 @@ class GalleryController extends Controller
     }
 
     function  create()
-	{
-        
+	{    
 		return  view('Album.form-album');
-    } 
+    }
+    
+    function   edit_album_detail($id) {
+            $gallery = Gallery::find($id);
+        
+            return view('Album.edit-album-detail',['gallery' => $gallery]);
+    }
+
     function edit($id){
         $picture = Picture::where('gallery_id',$id)->get();
 
@@ -57,18 +55,18 @@ class GalleryController extends Controller
         return back();
     }
 
-    function update(Request $req){
+    function update(Request $req,$id){
+        //dd( $req);
         $this->validate($req, [
            'title'   => 'required|max:255',
            'content' => 'required',
            'link' => 'required',
         ]);  
-        $id = $req->input('gallery_id');
         DB::table('gallery')->where('id',$id)->update([
-                    'topic'=> $req->input('topic'),
-                    'title'=>$req->input('title'),
+                    'title'=> $req->input('title'),
+                    'content'=>$req->input('content'),
                     'link'=>$req->input('link')
                 ]);
-        return "update success";
+        return back();
     }
 }
