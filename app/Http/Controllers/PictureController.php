@@ -25,9 +25,9 @@ class PictureController extends Controller
      	if($img){
      		foreach ($img as $pic) {
      			$newname = time().$num.'.'.$pic->getClientOriginalExtension();
-     			$pic->move(public_path('album'),$newname);
+     			$pic->move('album',$newname);
                 $picture = new Picture([
-                	'path'=> public_path('album').'\\'.$newname,
+                	'path'=> 'album/'.$newname,
                 	'gallery_id'=>$req->input('gallery_id')
                 ]);
                 $picture->save();

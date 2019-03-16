@@ -29,11 +29,11 @@ class ArticleController extends Controller
     	
     	if($req->file('picture')){
     		$newname = time().'.'.$req->file('picture')->getClientOriginalExtension();
-    		$req->file('picture')->move(public_path('article'),$newname);
+    		$req->file('picture')->move('article',$newname);
     		$article = new Article([
 	    		'title'=>$req->input('title'),
 	    		'content'=>$req->input('title'),
-	    		'path_pic'=> public_path('article').'\\'.$newname
+	    		'path_pic'=> 'article/'.$newname
     		]);
     		$article->save();
     	$con = "insert success";
@@ -58,8 +58,8 @@ class ArticleController extends Controller
     	if($req->file('picture')){
     		if(File::delete($path)){
     			$newname = time().'.'.$req->file('picture')->getClientOriginalExtension();
-    			$req->file('picture')->move(public_path('article'),$newname);
-    			$path =  public_path('article').'\\'.$newname;
+    			$req->file('picture')->move('article',$newname);
+    			$path =  'article/'.$newname;
     		}
 		}
     	DB::table('article')->where('id',$id)->update([
