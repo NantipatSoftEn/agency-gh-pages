@@ -78,4 +78,9 @@ class GalleryController extends Controller
                 ]);
         return back();
     }
+
+    public function show_all() {
+        $gallery = Gallery::all();
+        return view ('index', ['gallery' => $gallery]);
+    }
 }
