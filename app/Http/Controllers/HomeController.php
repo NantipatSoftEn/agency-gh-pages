@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Gallery ;
+use App\Article;
 class HomeController extends Controller
 {
     /**
@@ -24,5 +25,12 @@ class HomeController extends Controller
     public function index()
     {
         return view('album.form-album');
+    }
+
+    public function  show_all() {
+        $gallery = Gallery::all();
+        $article = Article::all();
+        //dd("fuck");
+        return view ('index', ['gallery' => $gallery,'article' => $article]);
     }
 }
