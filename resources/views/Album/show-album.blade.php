@@ -8,7 +8,7 @@
                 <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
         </div> --}}
-        <h2 class="section-heading text-uppercase">Show article</h2>
+        <h2 class="section-heading text-uppercase">Show Album</h2>
         <div class="row">
             @foreach ($gallery as $item)
             <div class="col-md-4">
