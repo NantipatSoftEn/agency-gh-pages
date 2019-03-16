@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="section-heading text-uppercase">Form article</h2>
-                <img src="{{$article->path_pic}}" class="img-fluid">
+                <img src="{{asset($article->path_pic)}}" class="img-fluid">
                 <form class="" action="{{url('/article-upd')}}" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <input type="hidden" name="article_id" value="{{$article->id}}">

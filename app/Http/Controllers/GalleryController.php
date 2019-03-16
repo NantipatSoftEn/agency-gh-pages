@@ -22,6 +22,14 @@ class GalleryController extends Controller
            'content' => 'required',
            'picture_up' => 'required',
         ]);        
+        $path;
+        if($req->file('picture_up')){
+    		$newname = time().'.'.$req->file('picture_up')->getClientOriginalExtension();
+    		$req->file('picture_up')->move('headAlbum',$newname);
+            $path ='article/'.$newname;
+    	$con = "insert success";
+        }
+        
         $gal = new Gallery([
                     'title'=>$req->input('title'),
                     'content'=>$req->input('content'),

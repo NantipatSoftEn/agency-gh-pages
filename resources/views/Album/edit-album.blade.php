@@ -26,7 +26,7 @@
             @foreach ($picture as $item)
             <div class="col-md-4">
                 <div class="card" style=" margin-bottom: 25px;">
-                    <img class="card-img-top" src="{{$item->path}}" alt="">
+                    <img class="card-img-top" src="{{asset($item->path)}}" alt="">
                     <div class="card-body">
 
                         <a href="{{asset('/edit-article/'.$item->id)}}" class="btn btn-info  btn-sm">Edit</a>
