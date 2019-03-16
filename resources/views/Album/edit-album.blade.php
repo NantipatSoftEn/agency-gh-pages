@@ -14,9 +14,9 @@
                 <div class="form-group">
                     <form action="{{url('/pic-upload')}}" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="hidden" name="gallery_id" value="{{csrf_token()}}">
+                        <input type="hidden" name="gallery_id" value="{{$id}}">
                         <label for="exampleFormControlFile1">Example file input</label>
-                        <input type="file" class="form-control-file" name="picture_up" id="" multiple>
+                        <input type="file" class="form-control-file" name="picture_up[]"  multiple>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
@@ -26,7 +26,7 @@
             @foreach ($picture as $item)
             <div class="col-md-4">
                 <div class="card" style=" margin-bottom: 25px;">
-                    <img class="card-img-top" src="{{asset($item->path)}}" alt="">
+                    <img class="card-img-top" src="{{$item->path}}" alt="">
                     <div class="card-body">
 
                         <a href="{{asset('/edit-article/'.$item->id)}}" class="btn btn-info  btn-sm">Edit</a>
