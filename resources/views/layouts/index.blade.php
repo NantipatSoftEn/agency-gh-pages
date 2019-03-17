@@ -28,6 +28,7 @@
 
 </head>
 
+
 <body id="page-top">
 
 
@@ -55,5 +56,21 @@
 <script src="{{asset('js/agency.min.js')}}"></script>
 <script src="{{asset('js/customize.js')}}"></script>
 <script src="{{asset('js/dropzone.js')}}"></script>
+<div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Modal Header</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <center><iframe src="https://www.youtube.com/watch?v=BWvbcdrWmNM"></iframe></center>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
 @yield('js')
 </html>

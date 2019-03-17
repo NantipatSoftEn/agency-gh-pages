@@ -10,12 +10,17 @@
             @foreach ($gallery as $item)
             <div class="col-md-4">
                 <div class="card" style=" margin-bottom: 25px;">
+                    <!--  <iframe src="{{$item->link}}" class="card-img-top "></iframe> -->
                     <img src="{{asset($item->img)}}" class="card-img-top ">
                     <div class="card-body">
                         <h5 class="card-title">{{$item->title}}</h5>
                         <p class="card-text">{{$item->content}}</p>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Large
                             modal</button>
+                            
+                                  
+                                </div>
+                              </div>
                         {{-- <a href="{{asset('/edit-album-detail/'.$item->id)}}" class="btn btn-warning  btn-sm">Edit</a>
                         <a href="{{asset('/edit-album/'.$item->id)}}" class="btn btn-info  btn-sm">Upload Img</a>
                         <a href="#!delete" onclick="confirmDelete('Are you sure to delete ?', '{{ url('album-del', $item->id )}}', 'delete');"
@@ -24,14 +29,14 @@
                 </div>
             </div>
             @endforeach
-            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+           <!--  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         Fuck
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
