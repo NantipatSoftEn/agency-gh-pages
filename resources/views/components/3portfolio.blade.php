@@ -17,26 +17,19 @@
                         <p class="card-text">{{$item->content}}</p>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#gallery-{{$item->id}}">Large
                             modal</button>
-                            
-                                  
-                                </div>
-                              </div>
-                        {{-- <a href="{{asset('/edit-album-detail/'.$item->id)}}" class="btn btn-warning  btn-sm">Edit</a>
-                        <a href="{{asset('/edit-album/'.$item->id)}}" class="btn btn-info  btn-sm">Upload Img</a>
-                        <a href="#!delete" onclick="confirmDelete('Are you sure to delete ?', '{{ url('album-del', $item->id )}}', 'delete');"
-                            class="btn btn-danger btn-sm">Delete</a> --}}
+
+
                     </div>
                 </div>
+                {{-- <a href="{{asset('/edit-album-detail/'.$item->id)}}" class="btn btn-warning  btn-sm">Edit</a>
+                <a href="{{asset('/edit-album/'.$item->id)}}" class="btn btn-info  btn-sm">Upload Img</a>
+                <a href="#!delete" onclick="confirmDelete('Are you sure to delete ?', '{{ url('album-del', $item->id )}}', 'delete');"
+                    class="btn btn-danger btn-sm">Delete</a> --}}
             </div>
+
             @endforeach
-           <!--  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        Fuck
-                    </div>
-                </div>
-            </div> -->
         </div>
+
+
     </div>
 </section>
