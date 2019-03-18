@@ -28,6 +28,7 @@
 
 </head>
 
+
 <body id="page-top">
 
 
@@ -55,5 +56,6 @@
 <script src="{{asset('js/agency.min.js')}}"></script>
 <script src="{{asset('js/customize.js')}}"></script>
 <script src="{{asset('js/dropzone.js')}}"></script>
+
 @yield('js')
 </html>

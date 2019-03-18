@@ -66,20 +66,20 @@
 <!-- Portfolio Modals -->
 
 <!-- Modal 1 -->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
+            <div class="close-modal" data-dismiss="modal" id="portfolioModal1">
                 <div class="lr">
                     <div class="rl"></div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container" id="portfolioModal1">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
-                            <iframe width="700" height="500" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                           <!--  <iframe width="700" height="500" src="https://www.youtube.com/embed/tgbNymZ7vqY">
                             </iframe>
 
 
@@ -163,8 +163,8 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
+    </div> -->
+<!-- </div> --> 
+@include('components.9modal')
 
 @endsection

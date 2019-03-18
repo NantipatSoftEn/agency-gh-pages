@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Gallery ;
 use App\Article;
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -29,8 +30,12 @@ class HomeController extends Controller
 
     public function  show_all() {
         $gallery = Gallery::all();
+        $picture;
+        foreach ($gallery as $item) {
+            $picture[$item->id]=DB::table('picture')->where('gallery_id',$item->id)->get();
+        }
         $article = Article::all();
-        //dd("fuck");
-        return view ('index', ['gallery' => $gallery,'article' => $article]);
+       
+        return view ('index', ['gallery' => $gallery,'article' => $article,'picture'=>$picture]);
     }
 }
