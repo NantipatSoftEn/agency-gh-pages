@@ -17,6 +17,8 @@ DB_PASSWORD=
 composer install
 composer dump-autoload 
 php artisan migrate:refresh --seed
+
+php artisan serve
 ```
 ## note
 Login
