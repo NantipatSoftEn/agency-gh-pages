@@ -30,9 +30,11 @@ class HomeController extends Controller
 
     public function  show_all() {
         $gallery = Gallery::all();
-        $picture;
-        foreach ($gallery as $item) {
-            $picture[$item->id]=DB::table('picture')->where('gallery_id',$item->id)->get();
+        $picture=array();
+        if(!empty($gallery)){
+            foreach ($gallery as $item) {
+                $picture[$item->id]=DB::table('picture')->where('gallery_id',$item->id)->get();
+            }
         }
         $article = Article::all();
        
