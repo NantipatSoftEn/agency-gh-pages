@@ -22,7 +22,7 @@ class GalleryController extends Controller
            'content' => 'required',
            //'picture_up' => 'required',
         ]);        
-        $path;
+        $path='';
         if($req->file('picture')){
     		$newname = time().'.'.$req->file('picture')->getClientOriginalExtension();
     		$req->file('picture')->move('imgOfalbum',$newname);
@@ -37,8 +37,9 @@ class GalleryController extends Controller
                     'link'=>$req->input('link')
                 ]);
                 $gal->save();
-         $gallery = Gallery::all();
-        return view ('Album.show-album', ['gallery' => $gallery]);
+                return redirect('/show-album');
+         // $gallery = Gallery::all();
+        // return view ('Album.show-album', ['gallery' => $gallery]);
     }
 
     function  create()
